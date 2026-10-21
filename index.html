@@ -1,107 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anderson Ferreira | Video Editor Portfolio</title>
+    <title>Anderson Ferreira | Video Editor</title>
     <style>
-        :root {
-            --bg: #0d0f12;
-            --card: #161920;
-            --accent: #00ff88;
-            --text: #e6e8ec;
-            --subtext: #9da3ae;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            background-color: #0a0f0d;
+            color: #e6e8ec;
+            font-family: Arial, sans-serif;
         }
 
-        .container {
+        /* Secção Principal (Hero) */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Substitui 'sua-foto.jpg' pelo nome ou link da tua foto */
+            background: linear-gradient(180deg, rgba(12, 35, 18, 0.6) 0%, rgba(8, 20, 12, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 50px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            color: #a0c4ab;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: #00c853;
+            color: #ffffff;
+            padding: 10px 22px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .hero-btn:hover {
+            background-color: #00a843;
+        }
+
+        /* Conteúdo restante do site */
+        .content {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 50px 0 30px;
-            border-bottom: 1px solid #232733;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin: 0;
-            letter-spacing: -1px;
-        }
-
-        .accent { color: var(--accent); }
-
-        .tagline {
-            color: var(--subtext);
-            font-size: 1.2rem;
-            margin-top: 8px;
-            font-weight: 500;
-        }
-
-        .hero-desc {
-            max-width: 600px;
-            margin: 15px auto 25px;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: #000;
-            padding: 12px 30px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: transform 0.2s;
-        }
-
-        .btn:hover {
-            transform: scale(1.03);
-        }
-
-        .about-box {
-            background: var(--card);
-            border: 1px solid #232733;
-            border-radius: 10px;
-            padding: 25px;
-            margin: 40px 0;
-        }
-
-        .about-box h3 {
-            margin-top: 0;
-            color: var(--accent);
+            padding: 60px 20px;
         }
 
         .section-title {
-            font-size: 1.8rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
-            margin: 50px 0 25px;
-        }
-
-        .video-card {
-            background: var(--card);
-            border: 1px solid #232733;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
+            font-size: 1.6rem;
+            color: #00c853;
+            margin-bottom: 20px;
+            border-left: 3px solid #00c853;
+            padding-left: 10px;
         }
 
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
+            background: #141a16;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 40px;
         }
 
         .video-container iframe {
@@ -112,86 +99,23 @@
             height: 100%;
             border: 0;
         }
-
-        .video-info {
-            padding: 20px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .service-card {
-            background: var(--card);
-            border: 1px solid #232733;
-            border-radius: 10px;
-            padding: 22px;
-        }
-
-        .service-card h3 {
-            margin-top: 0;
-            color: var(--text);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0 20px;
-            color: var(--subtext);
-            font-size: 0.9rem;
-            border-top: 1px solid #232733;
-            margin-top: 60px;
-        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>ANDERSON <span class="accent">FERREIRA</span></h1>
-            <p class="tagline">VIDEO EDITOR | REMOTE WORK</p>
-            <p class="hero-desc">"I make videos feel good to watch. From talking heads to gaming edits and shorts."</p>
-            <a href="mailto:goncalvesanderson2006@gmail.com" class="btn">Say Hello</a>
-        </header>
+    <!-- Cabeçalho / Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">Anderson Ferreira</h1>
+        <p class="hero-subtitle">Video Editor</p>
+        <a href="#work" class="hero-btn">Learn More ↗</a>
+    </section>
 
-        <div class="about-box">
-            <h3>About Me</h3>
-            <p>I'm Anderson Gonçalves Ferreira, a 20-year-old video editor. I'm editing because I want to build a real career in this field, and I'm putting in the hours to get there. I'm still early, and that works in your favor: I care about every detail, I listen to feedback, and I'm quick to learn your style.</p>
-        </div>
-
+    <!-- Conteúdo do Portfólio -->
+    <div class="content" id="work">
         <h2 class="section-title">Selected Work</h2>
-        
-        <div class="video-card">
-            <div class="video-container">
-                <!-- Substitua o trecho SEU_ID_AQUI pelo ID do seu vídeo do YouTube -->
-                <iframe src="https://www.youtube.com/embed/SEU_ID_AQUI" allowfullscreen></iframe>
-            </div>
-            <div class="video-info">
-                <h3 style="margin: 0 0 10px 0;">Top 1 Chamber Playing Reyna?!</h3>
-                <p style="color: var(--subtext); margin: 0;">A gaming edit made for practice: a 30-minute match cut down to 10 minutes, highlighting the best moments and key plays.</p>
-            </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/SEU_ID_AQUI" allowfullscreen></iframe>
         </div>
-
-        <h2 class="section-title">Services</h2>
-        <div class="grid">
-            <div class="service-card">
-                <h3>Talking Head</h3>
-                <p style="color: var(--subtext);">Cuts, pacing, captions, music, and sound cleanup for videos where you talk to the camera.</p>
-            </div>
-            <div class="service-card">
-                <h3>Gaming</h3>
-                <p style="color: var(--subtext);">Gameplay edits with highlights, sound effects, zooms, and a fun rhythm.</p>
-            </div>
-            <div class="service-card">
-                <h3>Shorts & Reels</h3>
-                <p style="color: var(--subtext);">Vertical videos for YouTube Shorts, TikTok, and Reels with captions and a strong opening hook.</p>
-            </div>
-        </div>
-
-        <footer>
-            <p>Anderson Gonçalves Ferreira • Brazil (UTC-3) • Available for remote work</p>
-        </footer>
     </div>
 
 </body>

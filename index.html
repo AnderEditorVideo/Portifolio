@@ -373,6 +373,75 @@
   }
 }
 
+    
+/* Editing Software */
+.software-section {
+  margin-top: 60px;
+}
+
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 900px;
+}
+
+.software-card {
+  background: #111613;
+  border: 1px solid #202b23;
+  border-radius: 10px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.software-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 255, 120, 0.12);
+  border-color: rgba(0, 255, 120, 0.5);
+}
+
+.software-card img {
+  width: 76px;
+  height: 76px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.software-card h3 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.software-stars {
+  color: var(--accent-green);
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+}
+
+.software-stars span {
+  color: #3a463e;
+}
+
+@media (max-width: 600px) {
+  .software-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .software-card {
+    transition: none;
+  }
+
+  .software-card:hover {
+    transform: none;
+  }
+}
+
+
 
   </style>
 </head>

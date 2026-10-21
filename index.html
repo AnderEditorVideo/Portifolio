@@ -442,6 +442,35 @@
 }
 
 
+/* Service star ratings */
+.service-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #3a463e;
+}
+
+.service-stars .filled {
+  color: var(--accent-green);
+}
+
+.service-stars .half {
+  color: #3a463e;
+  background: linear-gradient(
+    to right,
+    var(--accent-green) 50%,
+    #3a463e 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
 
   </style>
 </head>

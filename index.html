@@ -273,10 +273,16 @@
       border-color: rgba(0, 255, 120, 0.5);
   }
 
-  .portfolio-section iframe:hover {
-      transform: scale(1.015);
-      box-shadow: 0 10px 30px rgba(0, 255, 120, 0.15);
-  }
+.video-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 255, 120, 0.12);
+    border-color: rgba(0, 255, 120, 0.5);
+}
 
   </style>
 </head>

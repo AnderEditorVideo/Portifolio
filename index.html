@@ -421,20 +421,30 @@
 </section>
 
 
-    <section id="portfolio" class="portfolio-section">
-      <h2 class="section-title">Selected Work</h2>
 
+<section id="portfolio" class="portfolio-section">
+  <h2 class="section-title">Selected Work</h2>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-arrow prev"
+            type="button"
+            aria-label="Previous videos">
+      &#10094;
+    </button>
+
+    <div class="video-track">
+
+      <!-- VIDEO 1 -->
       <article class="video-card">
         <div class="video-container">
-          <!-- Replace VIDEO_ID with your actual YouTube video ID -->
-           <iframe
-    src="https://www.youtube.com/embed/M7UGLEwyqrI"
-    title="Top 1 Chamber Playing Reyna?!"
-    loading="lazy"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen>
-            </iframe>
+          <iframe
+            src="https://www.youtube.com/embed/M7UGLEwyqrI"
+            title="Top 1 Chamber Playing Reyna?!"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
         </div>
 
         <div class="video-info">
@@ -446,7 +456,23 @@
           </p>
         </div>
       </article>
-    </section>
+
+      <!--
+      PARA ADICIONAR OUTRO VÍDEO:
+      Copie um artigo video-card completo,
+      cole aqui e altere o ID, título, categoria e descrição.
+      -->
+
+    </div>
+
+    <button class="carousel-arrow next"
+            type="button"
+            aria-label="Next videos">
+      &#10095;
+    </button>
+  </div>
+</section>
+
 
     <section id="services" class="services-section">
       <h2 class="section-title">Services</h2>

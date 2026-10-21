@@ -493,6 +493,28 @@
   stroke-width: 1.8;
 }
 
+    
+/* Efeito nos cards de serviços */
+.service-card {
+    transition: transform 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: #39ff88;
+    box-shadow: 0 8px 25px rgba(57, 255, 136, 0.12);
+}
+
+.service-icon {
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.08);
+    background: rgba(57, 255, 136, 0.18);
+}
+
 
   </style>
 </head>

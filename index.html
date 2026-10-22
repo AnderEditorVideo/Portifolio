@@ -1039,5 +1039,26 @@ document.querySelectorAll('.carousel-wrapper').forEach((carousel) => {
   lucide.createIcons();
 </script>
 
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll(
+    '.section-title, .about-lead, .about-box, .video-card, .service-card, .software-card, .contact-section'
+).forEach((element) => {
+    element.classList.add('reveal');
+    observer.observe(element);
+});
+</script>
+
+  
 </body>
 </html>

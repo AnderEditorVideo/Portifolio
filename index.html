@@ -55,6 +55,8 @@
       align-items: center;
       padding: 40px 20px 90px;
       text-align: center;
+      overflow: hidden;
+      isolation: isolate;
       background:
         linear-gradient(
           to bottom,
@@ -76,6 +78,7 @@
     }
 
     .hero-subtitle {
+      transition: transform 0.15s ease-out;
       margin-top: 12px;
       color: #a3b8aa;
       font-size: 0.8rem;
@@ -1069,6 +1072,34 @@ document.querySelectorAll(
 });
 </script>
 
+  <script>
+const hero = document.querySelector('.hero-section');
+const title = document.querySelector('.hero-title');
+const subtitle = document.querySelector('.hero-subtitle');
+const button = document.querySelector('.hero-link');
+
+hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    title.style.transform =
+        `translate(${x * 12}px, ${y * 12}px)`;
+
+    subtitle.style.transform =
+        `translate(${x * 8}px, ${y * 8}px)`;
+
+    button.style.transform =
+        `translate(${x * 5}px, ${y * 5}px)`;
+});
+
+hero.addEventListener('mouseleave', () => {
+    title.style.transform = '';
+    subtitle.style.transform = '';
+    button.style.transform = '';
+});
+</script>
   
 </body>
 </html>

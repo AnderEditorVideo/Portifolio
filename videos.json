@@ -1,5 +1,33 @@
 {
+  "channelId": "UCkA8RxskUqa_w5ly5GG1pUA",
   "channelUrl": "https://www.youtube.com/@AnderEditorVideo",
-  "updatedAt": null,
-  "videos": []
+  "updatedAt": "2026-11-12T20:25:33.283Z",
+  "longFormVideos": [
+    {
+      "id": "jqDwL4ky3RE",
+      "title": "FINALMENTE UM MASCOT HORROR BOM?! (Editado / Não é o original)",
+      "published": "2026-11-12T20:08:34+00:00",
+      "author": "Ander_ferreira"
+    },
+    {
+      "id": "M7UGLEwyqrI",
+      "title": "Top 1 Chamber jogando de REYNA e fazendo isso... 😳",
+      "published": "2026-10-21T13:15:34+00:00",
+      "author": "Ander_ferreira"
+    }
+  ],
+  "shortFormVideos": [
+    {
+      "id": "klvL2jO-wP0",
+      "title": "Você está realmente vivendo ou só assistindo? 📱🌍",
+      "published": "2026-11-12T20:11:17+00:00",
+      "author": "Ander_ferreira"
+    },
+    {
+      "id": "ps8lWLL2KXc",
+      "title": "Qual o VERDADEIRO tamanho da maior serpente da história?",
+      "published": "2026-10-21T13:19:02+00:00",
+      "author": "Ander_ferreira"
+    }
+  ]
 }

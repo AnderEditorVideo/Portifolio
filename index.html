@@ -854,26 +854,61 @@
 
 
 
-<section id="latest-uploads" class="portfolio-section">
-  <h2 class="section-title">Latest YouTube Uploads</h2>
-  <p class="about-lead" id="youtube-sync-status">New videos from my YouTube channel appear here automatically.</p>
-  <div class="grid" id="youtube-latest-grid" aria-live="polite"></div>
-</section>
-
+<script>
+(async function loadPortfolioVideos() {
+  try {
+    const response = await fetch('./videos.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Video list unavailable');
+    const data = await response.json();
+    const groups = [
+      { key: 'longFormVideos', short: false },
+      { key: 'shortFormVideos', short: true }
+    ];
+    const tracks = [...document.querySelectorAll('#portfolio .carousel-wrapper .video-track')];
+    groups.forEach((group, index) => {
+      const track = tracks[index];
+      if (!track) return;
+      const videos = Array.isArray(data[group.key]) ? data[group.key] : [];
+      const existing = new Set([...track.querySelectorAll('iframe')].map(frame => {
+        try { return new URL(frame.src).pathname.split('/').pop(); } catch { return ''; }
+      }));
+      videos.forEach(video => {
+        if (!/^[a-zA-Z0-9_-]{11}$/.test(video.id || '') || existing.has(video.id)) return;
+        const card = document.createElement('article');
+        card.className = 'video-card' + (group.short ? ' short-form-card' : '');
+        const frame = document.createElement('iframe');
+        frame.src = 'https://www.youtube.com/embed/' + video.id;
+        frame.title = video.title || 'YouTube video';
+        frame.loading = 'lazy';
+        frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        frame.referrerPolicy = 'strict-origin-when-cross-origin';
+        frame.allowFullscreen = true;
+        const container = document.createElement('div');
+        container.className = 'video-container';
+        container.appendChild(frame);
+        const info = document.createElement('div');
+        info.className = 'video-info';
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.textContent = group.short ? 'Short-form Edit' : 'Long-form Edit';
+        const title = document.createElement('h3');
+        title.textContent = video.title || 'YouTube video';
+        const date = document.createElement('p');
+        date.textContent = video.published ? new Date(video.published).toLocaleDateString() : '';
+        info.append(tag, title, date);
+        card.append(container, info);
+        track.appendChild(card);
+      });
+    });
+  } catch (error) { console.error('YouTube portfolio videos:', error); }
+})();
+</script>
 <style>
-  #youtube-latest-grid .video-card { margin-bottom: 0; }
-  #youtube-latest-grid .video-thumb {
-    display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #050705;
-  }
-  #youtube-latest-grid .video-thumb img {
-    display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease;
-  }
-  #youtube-latest-grid .video-card:hover .video-thumb img { transform: scale(1.04); }
-  #youtube-latest-grid .video-info a { color: var(--accent-green); text-decoration: none; }
-  #youtube-latest-grid .video-info a:hover { text-decoration: underline; }
+  #portfolio .short-form-card .video-container { aspect-ratio: 9 / 16; max-width: 320px; margin: 0 auto; }
+  #portfolio .short-form-card { align-self: start; }
 </style>
 
-    <section id="services" class="services-section">
+<section id="services" class="services-section">
       <h2 class="section-title">Services</h2>
 
       <div class="grid">
@@ -1068,57 +1103,7 @@ document.querySelectorAll('.carousel-wrapper').forEach((carousel) => {
 });
 </script>
 
-<script>
-(async function loadLatestYouTubeUploads() {
-  const grid = document.getElementById('youtube-latest-grid');
-  const status = document.getElementById('youtube-sync-status');
-  if (!grid || !status) return;
 
-  try {
-    const response = await fetch('./videos.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error('Video list is not available yet');
-    const data = await response.json();
-    const videos = Array.isArray(data.videos) ? data.videos : [];
-
-    if (!videos.length) {
-      status.textContent = 'The latest uploads will appear here after the first automatic sync.';
-      return;
-    }
-
-    status.textContent = data.updatedAt
-      ? 'Automatically synced from YouTube · Updated ' + new Date(data.updatedAt).toLocaleString()
-      : 'Automatically synced from YouTube';
-
-    grid.innerHTML = videos.slice(0, 12).map(video => {
-      const title = String(video.title || 'YouTube video');
-      const safeTitle = title.replace(/[&<>"']/g, char => ({
-        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-      })[char]);
-      const id = /^[a-zA-Z0-9_-]{11}$/.test(video.id || '') ? video.id : '';
-      if (!id) return '';
-      return `
-        <article class="video-card">
-          <a class="video-thumb" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${safeTitle}">
-            <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="Thumbnail: ${safeTitle}" loading="lazy">
-          </a>
-          <div class="video-info">
-            <span class="tag">YouTube Upload</span>
-            <h3><a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer">${safeTitle}</a></h3>
-            <p>${video.published ? new Date(video.published).toLocaleDateString() : ''}</p>
-          </div>
-        </article>`;
-    }).join('');
-
-    if (!grid.children.length) status.textContent = 'No public uploads were found.';
-    grid.querySelectorAll('.video-card').forEach(card => {
-      card.classList.add('reveal', 'visible');
-    });
-  } catch (error) {
-    status.textContent = 'Could not load the latest uploads right now. Please visit my YouTube channel.';
-    console.error('YouTube portfolio sync:', error);
-  }
-})();
-</script>
 
   <script>
   lucide.createIcons();

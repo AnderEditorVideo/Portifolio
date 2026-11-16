@@ -1,22 +1,8 @@
 {
   "channelId": "UCkA8RxskUqa_w5ly5GG1pUA",
   "channelUrl": "https://www.youtube.com/@AnderEditorVideo",
-  "updatedAt": "2026-11-16T09:20:25.423Z",
+  "updatedAt": "2026-11-16T10:53:21.756Z",
   "longFormVideos": [
-    {
-      "id": "jqDwL4ky3RE",
-      "title": "FINALMENTE UM MASCOT HORROR BOM?! (Editado / Não é o original)",
-      "published": "2026-11-12T20:08:34+00:00",
-      "author": "Ander_ferreira"
-    },
-    {
-      "id": "M7UGLEwyqrI",
-      "title": "Top 1 Chamber jogando de REYNA e fazendo isso... 😳",
-      "published": "2026-10-21T13:15:34+00:00",
-      "author": "Ander_ferreira"
-    }
-  ],
-  "shortFormVideos": [
     {
       "id": "Pr353PrEmOE",
       "title": "Você sabia sobre o Creeper? #ediçãodevídeo #minecraft #minecraftshorts #shorts",
@@ -30,10 +16,23 @@
       "author": "Ander_ferreira"
     },
     {
+      "id": "jqDwL4ky3RE",
+      "title": "FINALMENTE UM MASCOT HORROR BOM?! (Editado / Não é o original)",
+      "published": "2026-11-12T20:08:34+00:00",
+      "author": "Ander_ferreira"
+    },
+    {
       "id": "ps8lWLL2KXc",
       "title": "Qual o VERDADEIRO tamanho da maior serpente da história?",
       "published": "2026-10-21T13:19:02+00:00",
       "author": "Ander_ferreira"
+    },
+    {
+      "id": "M7UGLEwyqrI",
+      "title": "Top 1 Chamber jogando de REYNA e fazendo isso... 😳",
+      "published": "2026-10-21T13:15:34+00:00",
+      "author": "Ander_ferreira"
     }
-  ]
+  ],
+  "shortFormVideos": []
 }
